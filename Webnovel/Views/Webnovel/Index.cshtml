@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Webnovel>
+@{
+    ViewData["Title"] = "Webnovel";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Webnovel List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-action="Create" asp-controller="Webnovel" class="btn btn-primary">Create New Webnovel</a>
+        </div>
+    </div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Pages</th>
+            <th>Genre</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model){
+            <tr>
+                <td>@obj.Id</td>
+                <td>@obj.Name</td>
+                <td>@obj.PageCount</td>
+                <td>@obj.Genre</td>
+                <td>@obj.CreatedDate</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
