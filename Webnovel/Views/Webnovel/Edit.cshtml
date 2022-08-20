@@ -1,0 +1,50 @@
+﻿@model Webnovel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form method="post" asp-action="Edit">
+    <fieldset>
+        <legend>Create Webnovel</legend>
+        <br />
+        <div asp-validation-summary="All"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="form-label mt-4">Title</label>
+            <input type="text" asp-for="Name" class="form-control" aria-describedby="titleHelp" placeholder="Enter title">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Genre" class="form-label mt-4">Genre</label>
+
+            <select class="form-select" id="InputGenre" asp-for="Genre">
+                <option value="Fantasy">Fantasy</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Horror">Horror</option>
+                <option value="Thriller">Thriller</option>
+                <option value="LitRpg">LitRpg</option>
+                <option value="Romance">Romance</option>
+            </select>
+            <span asp-validation-for="Genre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PageCount" class="form-label mt-4">Pages</label>
+            <input type="number" asp-for="PageCount" min="1" class="form-control" aria-describedby="pages" placeholder="Enter page count">
+            <span asp-validation-for="PageCount" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CreatedDate" class="form-label mt-4">Pages</label>
+            <input type="date" asp-for="CreatedDate" min="1" class="form-control" aria-describedby="date">
+            <span asp-validation-for="CreatedDate" class="text-danger"></span>
+        </div>
+        <br />
+        <button asp-action="Edit" asp-controller="Webnovel" type="submit" class="btn btn-primary">Edit</button>
+        <button asp-action="Index" asp-controller="Webnovel" class="btn btn-outline-secondary">Back to List</button>
+    </fieldset>
+</form>
+@*Client side validation*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+
+    }
+    }
